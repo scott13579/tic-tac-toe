@@ -8,6 +8,12 @@ public class PanelManager : MonoBehaviour
     
     public enum PanelType { StartPanel, WinPanel, DrawPanel, LosePanel }
 
+    private PanelController _currentPanelController;
+    
+    /// <summary>
+    /// 표시할 패널 정보 전달하는 함수
+    /// </summary>
+    /// <param name="panelType"> 표시할 패널 </param>
     public void ShowPanel(PanelType panelType)
     {
         switch (panelType)
