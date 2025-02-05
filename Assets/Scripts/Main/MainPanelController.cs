@@ -1,24 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class StartPanelController : PanelController
+public class MainPanelController : MonoBehaviour
 {
     public void OnClickSinglePlayButton()
     {
-        GameManager.Instance.StartGame();
-        Hide();
+        SceneManager.LoadScene("Game");
     }
     
     public void OnClickDualPlayButton()
     {
-        GameManager.Instance.StartGame();
-        Hide();
+        SceneManager.LoadScene("Game");
     }
     
     public void OnClickSettingsButton()
     {
-        GameManager.Instance.StartGame();
-        Hide();
+        
     }
 }

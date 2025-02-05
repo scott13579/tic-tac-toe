@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
@@ -40,11 +39,11 @@ public class GameManager : Singleton<GameManager>
         // 블록 초기화
         blockController.InitBlocks();
         
-        // Start Panel 표시
-        panelManager.ShowPanel(PanelManager.PanelType.StartPanel);
-        
         // Game UI 초기화
         gameUIController.SetGameUIMode(GameUIController.GameUIMode.Init);
+        
+        // 게임 스타트
+        StartGame();
     }
 
     /// <summary>
@@ -66,7 +65,6 @@ public class GameManager : Singleton<GameManager>
         gameUIController.SetGameUIMode(GameUIController.GameUIMode.GameOver);
         
         // TODO: 나중에 구현!!
-        
         switch (gameResult)
         {
             case GameResult.Win:
@@ -188,7 +186,7 @@ public class GameManager : Singleton<GameManager>
         {
             if (_board[row, 0] == playerType && _board[row, 1] == playerType && _board[row, 2] == playerType)
             {
-                (int, int)[] blocks = { (row, 0), (row, 1), (row, 2) };
+                (int, int)[] blocks = { ( row, 0 ), ( row, 1 ), ( row, 2 ) };
                 blockController.SetBlockColor(playerType, blocks);
                 return true;
             }
@@ -199,7 +197,7 @@ public class GameManager : Singleton<GameManager>
         {
             if (_board[0, col] == playerType && _board[1, col] == playerType && _board[2, col] == playerType)
             {
-                (int, int)[] blocks = { (0, col), (1, col), (2, col) };
+                (int, int)[] blocks = { ( 0, col ), ( 1, col ), ( 2, col ) };
                 blockController.SetBlockColor(playerType, blocks);
                 return true;
             }
@@ -208,13 +206,13 @@ public class GameManager : Singleton<GameManager>
         // 대각선 마커 일치하는지 확인
         if (_board[0, 0] == playerType && _board[1, 1] == playerType && _board[2, 2] == playerType)
         {
-            (int, int)[] blocks = { (0, 0), (1, 1), (2, 2) };
+            (int, int)[] blocks = { ( 0, 0 ), ( 1, 1 ), ( 2, 2 ) };
             blockController.SetBlockColor(playerType, blocks);
             return true;
         }
         if (_board[0, 2] == playerType && _board[1, 1] == playerType && _board[2, 0] == playerType)
         {
-            (int, int)[] blocks = { (0, 2), (1, 1), (2, 0) };
+            (int, int)[] blocks = { ( 0, 2 ), ( 1, 1 ), ( 2, 0 ) };
             blockController.SetBlockColor(playerType, blocks);
             return true;
         }

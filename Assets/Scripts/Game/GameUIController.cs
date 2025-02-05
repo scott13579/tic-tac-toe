@@ -29,6 +29,8 @@ public class GameUIController : MonoBehaviour
                 canvasGroupB.gameObject.SetActive(true);
                 gameOverButton.gameObject.SetActive(false);
                 
+                canvasGroupA.alpha = DisableAlpha;
+                canvasGroupB.alpha = DisableAlpha;
                 break;
             case GameUIMode.TurnA:
                 canvasGroupA.gameObject.SetActive(true);
@@ -52,5 +54,10 @@ public class GameUIController : MonoBehaviour
                 gameOverButton.gameObject.SetActive(true);
                 break;
         }
+    }
+
+    public void OnClickGameOverButton()
+    {
+        // TODO: 구현해야 함...
     }
 }
