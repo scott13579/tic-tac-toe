@@ -12,6 +12,7 @@ public class PanelManager : MonoBehaviour
     
     /// <summary>
     /// 표시할 패널 정보 전달하는 함수
+    /// 
     /// </summary>
     /// <param name="panelType"> 표시할 패널 </param>
     public void ShowPanel(PanelType panelType)
@@ -19,7 +20,7 @@ public class PanelManager : MonoBehaviour
         switch (panelType)
         {
             case PanelType.StartPanel:
-                
+                ShowPanelController(startPanelController);
                 break;
             case PanelType.WinPanel:
                 
@@ -31,5 +32,15 @@ public class PanelManager : MonoBehaviour
                 
                 break;
         }
+    }
+
+    private void ShowPanelController(PanelController panelController)
+    {
+        if (_currentPanelController != null)
+        {
+            _currentPanelController.Hide();
+        }
+        panelController.Show();
+        _currentPanelController = panelController;
     }
 }

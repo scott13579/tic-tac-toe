@@ -6,6 +6,7 @@ public class StartPanelController : PanelController
 {
     public void OnClickStartButton()
     {
-        // TODO: Start 버튼 클릿기 동작 구현
+        GameManager.Instance.StartGame();
+        Hide();
     }
 }
