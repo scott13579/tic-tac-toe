@@ -7,6 +7,8 @@
     <list default="true" id="9376bff4-cafe-4694-a859-376ca5a5feb5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tic-tac-toe/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tic-tac-toe/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Block.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Block.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/BlockController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/BlockController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/PanelController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/PanelController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/PanelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/PanelManager.cs" afterDir="false" />
@@ -103,7 +105,7 @@
       <option name="presentableId" value="Default" />
       <updated>1738628050458</updated>
       <workItem from="1738628052785" duration="16555000" />
-      <workItem from="1738714830840" duration="2525000" />
+      <workItem from="1738714830840" duration="10708000" />
     </task>
     <servers />
   </component>
