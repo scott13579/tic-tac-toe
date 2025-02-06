@@ -120,7 +120,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 919741740860907832}
+      - m_Target: {fileID: 8529925984397885687}
         m_TargetAssemblyTypeName: ConfirmPanelController, Assembly-CSharp
         m_MethodName: OnClickCloseButton
         m_Mode: 1
@@ -143,7 +143,6 @@ GameObject:
   - component: {fileID: 6370972830295659554}
   - component: {fileID: 1528922436182741886}
   - component: {fileID: 6980555444280963852}
-  - component: {fileID: 919741740860907832}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -168,10 +167,10 @@ RectTransform:
   - {fileID: 4327618550568519331}
   m_Father: {fileID: 6881511001091479247}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -200, y: -1000}
+  m_SizeDelta: {x: 600, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1528922436182741886
 CanvasRenderer:
@@ -211,19 +210,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &919741740860907832
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 795769192659149910}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab4dd2dcec51c004796e53e4a2fb2b40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  messageText: {fileID: 0}
 --- !u!1 &1773569528483582919
 GameObject:
   m_ObjectHideFlags: 0
@@ -503,6 +489,8 @@ GameObject:
   - component: {fileID: 6881511001091479247}
   - component: {fileID: 1199433444379123930}
   - component: {fileID: 27413840793021459}
+  - component: {fileID: 8529925984397885687}
+  - component: {fileID: 8798776278950621518}
   m_Layer: 5
   m_Name: Confirm Panel
   m_TagString: Untagged
@@ -551,7 +539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.78431374}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -568,6 +556,32 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8529925984397885687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7009969276575344340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab4dd2dcec51c004796e53e4a2fb2b40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelRectTransform: {fileID: 6881511001091479247}
+  messageText: {fileID: 8382195795046511317}
+--- !u!225 &8798776278950621518
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7009969276575344340}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &8912782249983769194
 GameObject:
   m_ObjectHideFlags: 0
@@ -689,7 +703,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 919741740860907832}
+      - m_Target: {fileID: 8529925984397885687}
         m_TargetAssemblyTypeName: ConfirmPanelController, Assembly-CSharp
         m_MethodName: OnClickConfirmButton
         m_Mode: 1

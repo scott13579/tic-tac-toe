@@ -15,6 +15,7 @@ public class ConfirmPanelController : PanelController
     {
         messageText.text = message;
         this.onConfirmButtonClick = onConfirmButtonClick;
+        base.Show();
     }
     
     /// <summary>
@@ -22,8 +23,7 @@ public class ConfirmPanelController : PanelController
     /// </summary>
     public void OnClickConfirmButton()
     {
-        onConfirmButtonClick?.Invoke();
-        Hide();
+        Hide(() => onConfirmButtonClick?.Invoke());
     }
 
     /// <summary>

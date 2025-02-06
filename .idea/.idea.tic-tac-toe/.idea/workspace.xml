@@ -6,11 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="9376bff4-cafe-4694-a859-376ca5a5feb5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tic-tac-toe/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tic-tac-toe/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Confirm Panel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Confirm Panel.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/SettingsPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/SettingsPanel.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Common/Singleton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Common/Singleton.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/GameUIController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameUIController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Main/MainPanelController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Main/MainPanelController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Test/PopupPanelController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Test/PopupPanelController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/ConfirmPanelController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/ConfirmPanelController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/PanelController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/PanelController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +110,7 @@
       <updated>1738628050458</updated>
       <workItem from="1738628052785" duration="16555000" />
       <workItem from="1738714830840" duration="17294000" />
-      <workItem from="1738800361296" duration="6181000" />
+      <workItem from="1738800361296" duration="13997000" />
     </task>
     <servers />
   </component>

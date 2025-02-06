@@ -11,6 +11,7 @@ public class GameManager : Singleton<GameManager>
     
     private BlockController _blockController;
     private GameUIController _gameUIController;
+    private Canvas _canvas;
     
     public enum PlayerType { None, PlayerA, PlayerB }
     private PlayerType[,] _board;
@@ -30,6 +31,30 @@ public class GameManager : Singleton<GameManager>
     public void ChangeToGameScene(GameType gameType)
     {
         SceneManager.LoadScene("Game");
+    }
+
+    public void ChangeToMainScene()
+    {
+        SceneManager.LoadScene("Main");
+    }
+
+    public void OpenSettingsPanel()
+    {
+        if (_canvas != null)
+        {
+            var settingsPanelObject = Instantiate(settingsPanel, _canvas.transform);
+            settingsPanelObject.GetComponent<PanelController>().Show();
+        }
+    }
+
+    public void OpenConfirmPanel(string message, ConfirmPanelController.OnConfirmButtonClick onConfirmButtonClick)
+    {
+        if (_canvas != null)
+        {
+            var confirmPanelObject = Instantiate(confirmPanel, _canvas.transform);
+            confirmPanelObject.GetComponent<ConfirmPanelController>()
+                .Show(message, onConfirmButtonClick);
+        }
     }
 
     /// <summary>
@@ -59,6 +84,7 @@ public class GameManager : Singleton<GameManager>
     {
         // 게임오버 표시
         _gameUIController.SetGameUIMode(GameUIController.GameUIMode.GameOver);
+        _blockController.OnBlockClickedDelegate = null;
         
         // TODO: 나중에 구현!!
         switch (gameResult)
@@ -84,6 +110,8 @@ public class GameManager : Singleton<GameManager>
     /// <returns>False가 반환되면 할당할 수 없음, True는 할당이 완료됨</returns>
     private bool SetNewBoardValue(PlayerType playerType, int row, int col)
     {
+        if (_board[row, col] != PlayerType.None) return false;
+        
         if (playerType == PlayerType.PlayerA)
         {
             _board[row, col] = playerType;
@@ -124,6 +152,11 @@ public class GameManager : Singleton<GameManager>
                 break;
             case TurnType.PlayerB:
                 _gameUIController.SetGameUIMode(GameUIController.GameUIMode.TurnB);
+                
+                // TODO: 계산된 row, col 값
+                int row = 0;
+                int col = 0;
+                
                 _blockController.OnBlockClickedDelegate = (row, col) =>
                 {
                     if (SetNewBoardValue(PlayerType.PlayerB, row, col))
@@ -226,5 +259,7 @@ public class GameManager : Singleton<GameManager>
             // 게임 시작
             StartGame();
         }
+        
+        _canvas = GameObject.FindObjectOfType<Canvas>();
     }
 }

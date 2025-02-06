@@ -253,6 +253,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25e2a502d003f8740b585944c86afdf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  settingsPanel: {fileID: 8685251038762782902, guid: d9aa75d3ee50a094282af67b6560471b, type: 3}
+  confirmPanel: {fileID: 7009969276575344340, guid: 86b3de0c9d2357142bfc6eb332d4d423, type: 3}
 --- !u!4 &1534014910
 Transform:
   m_ObjectHideFlags: 0
@@ -885,8 +887,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
