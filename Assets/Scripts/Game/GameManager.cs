@@ -2,9 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
+    [SerializeField] private GameObject settingsPanel;
+    [SerializeField] private GameObject confirmPanel;
+    
     private BlockController _blockController;
     private GameUIController _gameUIController;
     
@@ -20,17 +24,18 @@ public class GameManager : Singleton<GameManager>
         Lose,   // 플레이어 패
         Draw    // 비김
     }
+    
+    public enum GameType { SinglePlayer, DualPlayer }
 
-    private void Start()
+    public void ChangeToGameScene(GameType gameType)
     {
-        // 게임 초기화
-        InitGame();
+        SceneManager.LoadScene("Game");
     }
 
     /// <summary>
-    /// 게임 초기화 함수
+    /// 게임 시작
     /// </summary>
-    public void InitGame()
+    private void StartGame()
     {
         // _board 초기화
         _board = new PlayerType[3, 3];
@@ -41,15 +46,7 @@ public class GameManager : Singleton<GameManager>
         // Game UI 초기화
         _gameUIController.SetGameUIMode(GameUIController.GameUIMode.Init);
         
-        // 게임 스타트
-        StartGame();
-    }
-
-    /// <summary>
-    /// 게임 시작
-    /// </summary>
-    public void StartGame()
-    {
+        // 턴 시작
         SetTurn(TurnType.PlayerA);
     }
 
@@ -217,5 +214,17 @@ public class GameManager : Singleton<GameManager>
         }
 
         return false;
+    }
+
+    protected override void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "Game")
+        {
+            _blockController = GameObject.FindObjectOfType<BlockController>();
+            _gameUIController = GameObject.FindObjectOfType<GameUIController>();
+
+            // 게임 시작
+            StartGame();
+        }
     }
 }
