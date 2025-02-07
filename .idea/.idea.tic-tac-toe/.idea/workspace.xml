@@ -6,10 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9376bff4-cafe-4694-a859-376ca5a5feb5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.tic-tac-toe/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.tic-tac-toe/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/AIController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/AIController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +103,7 @@
       <workItem from="1738628052785" duration="16555000" />
       <workItem from="1738714830840" duration="17294000" />
       <workItem from="1738800361296" duration="16501000" />
-      <workItem from="1738886461329" duration="5267000" />
+      <workItem from="1738886461329" duration="7091000" />
     </task>
     <servers />
   </component>
