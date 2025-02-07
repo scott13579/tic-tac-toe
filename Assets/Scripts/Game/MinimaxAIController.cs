@@ -1,11 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public static class MinimaxAIController
 {
     public static (int row, int col)? GetBestMove(GameManager.PlayerType[,] board)
     {
+        float bestScore = -1000;
+        (int row, int col)? bestMove = null;
+        
         for (var row = 0; row < board.GetLength(0); row++)
         {
             for (var col = 0; col < board.GetLength(1); col++)
@@ -15,14 +20,20 @@ public static class MinimaxAIController
                     board[row, col] = GameManager.PlayerType.PlayerB;
                     var score = DoMinimax(board, 0, false);
                     board[row, col] = GameManager.PlayerType.None;
+                    
+                    if (score > bestScore)
+                    {
+                        bestScore = score;
+                        bestMove = (row, col);
+                    }
                 }
             }
         }
         
-        return null;
+        return bestMove;
     }
 
-    private static float DoMinimax(GameManager.PlayerType[,] board, int depth, bool isAITurn)
+    private static float DoMinimax(GameManager.PlayerType[,] board, int depth, bool isMaximizing)
     {
         if (CheckGameWin(GameManager.PlayerType.PlayerA, board))
             return -10 + depth;
@@ -31,8 +42,9 @@ public static class MinimaxAIController
         if (IsAllBlocksPlaced(board))
             return 0;
 
-        if (isAITurn)
+        if (isMaximizing)
         {
+            var bestScore = float.MinValue;
             for (var row = 0; row < board.GetLength(0); row++)
             {
                 for (var col = 0; col < board.GetLength(1); col++)
@@ -40,14 +52,17 @@ public static class MinimaxAIController
                     if (board[row, col] == GameManager.PlayerType.None)
                     {
                         board[row, col] = GameManager.PlayerType.PlayerB;
-                        DoMinimax(board, depth + 1, false);
+                        var score = DoMinimax(board, depth + 1, false);
                         board[row, col] = GameManager.PlayerType.None;
+                        bestScore = Math.Max(bestScore, score);
                     }
                 }
             }
+            return bestScore;
         }
         else
         {
+            var bestScore = float.MaxValue;
             for (var row = 0; row < board.GetLength(0); row++)
             {
                 for (var col = 0; col < board.GetLength(1); col++)
@@ -55,14 +70,14 @@ public static class MinimaxAIController
                     if (board[row, col] == GameManager.PlayerType.None)
                     {
                         board[row, col] = GameManager.PlayerType.PlayerA;
-                        DoMinimax(board, depth + 1, true);
+                        var score = DoMinimax(board, depth + 1, true);
                         board[row, col] = GameManager.PlayerType.None;
+                        bestScore = Math.Min(bestScore, score);
                     }
                 }
             }
+            return bestScore;
         }
-
-        return 0;
     }
     
     /// <summary>
