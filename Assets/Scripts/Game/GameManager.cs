@@ -174,7 +174,6 @@ public class GameManager : Singleton<GameManager>
                     EndGame(GameResult.Win);
                 }
                 
-                
                 break;
         }
     }
