@@ -64,7 +64,7 @@ public class GameUIController : MonoBehaviour
         });
     }
 
-    public void OnClickSettingsButton()
+    public void OnClickSettingsButton() 
     {
         GameManager.Instance.OpenSettingsPanel();
     }

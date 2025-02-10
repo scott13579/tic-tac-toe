@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
-using UnityEditor.Build;
 
 [RequireComponent(typeof(Image))]
 [RequireComponent(typeof(AudioSource))]
