@@ -75,6 +75,14 @@ public class NetworkManage : Singleton<NetworkManage>
             }
             else
             {
+                var cookie = www.GetResponseHeader("set-cookie");
+                if (!string.IsNullOrEmpty(cookie))
+                {
+                    int lastIndex = cookie.LastIndexOf(";");
+                    string sid = cookie.Substring(0, lastIndex);
+                    PlayerPrefs.SetString("sid", sid); 
+                }
+                
                 var resultString = www.downloadHandler.text;
                 var result = JsonUtility.FromJson<SigninResult>(resultString);
 
@@ -102,6 +110,43 @@ public class NetworkManage : Singleton<NetworkManage>
                         success?.Invoke();
                     });
                 }
+            }
+        }
+    }
+
+    public IEnumerator GetScore(Action<ScoreResult> success, Action failure)
+    {
+        using (UnityWebRequest www =
+               new UnityWebRequest(Constants.ServerURL + "/users/score", UnityWebRequest.kHttpVerbGET))
+        {
+            www.downloadHandler = new DownloadHandlerBuffer();
+            
+            string sid = PlayerPrefs.GetString("sid", "");
+            if (!string.IsNullOrEmpty(sid))
+            {
+                www.SetRequestHeader("Cookie", sid);
+            }
+
+            yield return www.SendWebRequest();
+
+            if (www.result == UnityWebRequest.Result.ConnectionError ||
+                www.result == UnityWebRequest.Result.ProtocolError)
+            {
+                if (www.responseCode == 403)
+                {
+                    Debug.Log("로그인이 필요합니다.");
+                }
+                
+                failure?.Invoke();
+            }
+            else
+            {
+                var result = www.downloadHandler.text;
+                var userScore = JsonUtility.FromJson<ScoreResult>(result);
+                
+                Debug.Log(userScore.score);
+                
+                success?.Invoke(userScore);
             }
         }
     }
