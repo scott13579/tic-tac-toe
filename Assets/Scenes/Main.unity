@@ -153,6 +153,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settingsPanel: {fileID: 8192463108357986988, guid: cdfc8ec662b748f4bbc68d0cbfaa6075, type: 3}
   confirmPanel: {fileID: 3322007610722072902, guid: fec6a239fd2033647b497ac588c545f1, type: 3}
+  signinPanel: {fileID: 3189539900228609402, guid: d22da0f6442cedf438cde44736be2e29, type: 3}
+  signupPanel: {fileID: 1418229856139745092, guid: 9f0a1fc40b442d443a3cbe868485e613, type: 3}
 --- !u!4 &234581368
 Transform:
   m_ObjectHideFlags: 0
