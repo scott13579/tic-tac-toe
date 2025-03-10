@@ -154,7 +154,7 @@ public class GameLogic
     {
         _currentPlayerState?.OnExit(this);
         _currentPlayerState = state;
-        _currentPlayerState.OnEnter(this);
+        _currentPlayerState?.OnEnter(this);
     }
     
     /// <summary>
@@ -245,6 +245,11 @@ public class GameLogic
     /// <param name="gameResult">win, lose, draw</param>
     public void EndGame(GameResult gameResult)
     {
-
+        SetState(null);
+        
+        firstPlayerState = null;
+        secondPlayerState = null;
+        
+        GameManager.Instance.OpenGameOverPanel();
     }
 }

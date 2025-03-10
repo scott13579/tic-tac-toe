@@ -81,6 +81,9 @@ public class GameManager : Singleton<GameManager>
             var blockController = GameObject.FindObjectOfType<BlockController>();
             _gameUIController = GameObject.FindObjectOfType<GameUIController>();
             
+            // Block Controller 초기화
+            blockController.InitBlocks();
+            
             // Game UI 초기화
             _gameUIController.SetGameUIMode(GameUIController.GameUIMode.Init);
             
