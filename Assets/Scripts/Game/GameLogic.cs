@@ -1,11 +1,4 @@
 
-// public interface IPlayerState
-// {
-//     void OnEnter(GameLogic gameLogic);
-//     void OnExit(GameLogic gameLogic);
-//     void HandleMove(GameLogic gameLogic, int row, int col);
-// }
-
 public abstract class BasePlayerState
 {
     public abstract void OnEnter(GameLogic gameLogic);
@@ -79,22 +72,30 @@ public class AIState : BasePlayerState
 {
     public override void OnEnter(GameLogic gameLogic)
     {
-        throw new System.NotImplementedException();
+        // AI 연산
+        var result = MinimaxAIController.GetBestMove(gameLogic.GetBoard());
+        if (result.HasValue)
+        {
+            HandleMove(gameLogic, result.Value.row, result.Value.col);
+        }
+        else
+        {
+            gameLogic.EndGame(GameLogic.GameResult.Draw);
+        }
     }
 
     public override void OnExit(GameLogic gameLogic)
     {
-        throw new System.NotImplementedException();
     }
 
     public override void HandleMove(GameLogic gameLogic, int row, int col)
     {
-        throw new System.NotImplementedException();
+        ProcessMove(gameLogic, Constants.PlayerType.PlayerB, row, col);
     }
 
     protected override void HandleNextTurn(GameLogic gameLogic)
     {
-        throw new System.NotImplementedException();
+        gameLogic.SetState(gameLogic.firstPlayerState);
     }
 }
 
@@ -251,5 +252,10 @@ public class GameLogic
         secondPlayerState = null;
         
         GameManager.Instance.OpenGameOverPanel();
+    }
+
+    public Constants.PlayerType[,] GetBoard()
+    {
+        return _board;
     }
 }
