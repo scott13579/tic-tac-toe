@@ -14,10 +14,7 @@ public class GameManager : Singleton<GameManager>
     private GameUIController _gameUIController;
     private Canvas _canvas;
     
-    private enum TurnType { PlayerA, PlayerB }
-    
-    public enum GameType { SinglePlayer, DualPlayer, MultiPlayer }
-    private GameType _gameType;
+    private Constants.GameType _gameType;
 
     private void Start()
     {
@@ -25,7 +22,7 @@ public class GameManager : Singleton<GameManager>
         // OpenSigninPanel();
     }
 
-    public void ChangeToGameScene(GameType gameType)
+    public void ChangeToGameScene(Constants.GameType gameType)
     {
         _gameType = gameType;
         SceneManager.LoadScene("Game");
@@ -88,7 +85,7 @@ public class GameManager : Singleton<GameManager>
             _gameUIController.SetGameUIMode(GameUIController.GameUIMode.Init);
             
             // Game Logic 객체 생성
-            var gameLogic = new GameLogic(blockController);
+            var gameLogic = new GameLogic(blockController, _gameType);
         }
         
         _canvas = GameObject.FindObjectOfType<Canvas>();
